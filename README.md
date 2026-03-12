@@ -1,79 +1,83 @@
 # AutostartMe
 
-Android-App zum Verwalten von Apps, die beim Gerätestart automatisch gestartet werden.
+Android app for managing apps that automatically launch on device boot.
 
 ## Features
 
-- **Autostart-Liste** – Übersicht aller Apps, die beim Hochfahren gestartet werden
-- **Löschen** – Jede App kann einzeln per Papierkorb-Button aus der Liste entfernt werden
-- **App hinzufügen** – Alle installierten Apps durchsuchen und zur Autostart-Liste hinzufügen
-- **Suchfunktion** – Schnelles Finden von Apps nach Name oder Paketname
-- **Boot-Receiver** – Startet die konfigurierten Apps automatisch nach dem Gerätestart
-- **Berechtigungs-Banner** – Zeigt fehlende Berechtigungen direkt in der App an mit Buttons zum Erteilen
+- **Autostart list** – Overview of all apps configured to launch on boot
+- **Remove** – Each app can be removed from the list via a trash icon button
+- **Add app** – Browse all installed apps and add them to the autostart list
+- **Search** – Quickly find apps by name or package name
+- **Boot receiver** – Automatically launches configured apps after device boot
+- **Permission banner** – Displays missing permissions directly in the app with buttons to grant them
 
 ## Screenshots
 
-| Autostart-Liste | App hinzufügen |
+| Autostart List | Add App |
 |:---:|:---:|
 | *FirstFragment* | *SecondFragment* |
 
-## Voraussetzungen
+## Requirements
 
-- Android 13 (API 33) oder höher
-- Android Studio mit AGP 9.0+
+- Android 13 (API 33) or higher
+- Android Studio with AGP 9.0+
 
-## Berechtigungen
+## Permissions
 
-| Berechtigung | Zweck |
+| Permission | Purpose |
 |---|---|
-| `RECEIVE_BOOT_COMPLETED` | Empfängt das Boot-Signal nach dem Gerätestart |
-| `SYSTEM_ALERT_WINDOW` | Ermöglicht das Starten von Apps aus dem Hintergrund (Android 10+) |
-| `POST_NOTIFICATIONS` | Zeigt Benachrichtigungen bei fehlgeschlagenen Starts (Android 13+) |
-| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | Stellt sicher, dass der Boot-Receiver nicht durch Akkuoptimierung unterdrückt wird |
+| `RECEIVE_BOOT_COMPLETED` | Receives the boot signal after device startup |
+| `SYSTEM_ALERT_WINDOW` | Allows launching apps from the background (Android 10+) |
+| `POST_NOTIFICATIONS` | Shows notifications for failed launches (Android 13+) |
+| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | Ensures the boot receiver is not suppressed by battery optimization |
 
-> **Wichtig:** Nach der Installation müssen die Berechtigungen **"Über anderen Apps anzeigen"** und **"Akkuoptimierung deaktivieren"** manuell erteilt werden. Die App zeigt ein rotes Banner mit direkten Links zu den Einstellungen, solange Berechtigungen fehlen.
+> **Important:** After installation, the permissions **"Display over other apps"** and **"Disable battery optimization"** must be granted manually. The app displays a red banner with direct links to the respective settings as long as permissions are missing.
 
-## Technologie
+## Technology
 
-- **Sprache:** Kotlin
+- **Language:** Kotlin
 - **UI:** Material Design 3 (Material You)
-- **Architektur:** Single-Activity mit Navigation Component
-- **View Binding:** Aktiviert
+- **Architecture:** Single-Activity with Navigation Component
+- **View Binding:** Enabled
 - **Min SDK:** 33 (Android 13)
 - **Target SDK:** 36
 
-## Projektstruktur
+## Project Structure
 
 ```
 app/src/main/java/com/example/autostartme/
-├── MainActivity.kt            # Haupt-Activity mit Toolbar, FAB und Navigation
-├── FirstFragment.kt           # Autostart-Liste mit Berechtigungs-Banner
-├── SecondFragment.kt          # App-Auswahl mit Suchfunktion
-├── AutostartPreferences.kt    # SharedPreferences-Helper für die App-Liste
-├── AutostartAppAdapter.kt     # RecyclerView-Adapter für die Autostart-Liste
-├── AppPickerAdapter.kt        # RecyclerView-Adapter für die App-Auswahl
-└── BootReceiver.kt            # BroadcastReceiver für BOOT_COMPLETED
+├── MainActivity.kt            # Main activity with toolbar, FAB and navigation
+├── FirstFragment.kt           # Autostart list with permission banner
+├── SecondFragment.kt          # App picker with search functionality
+├── AutostartPreferences.kt    # SharedPreferences helper for the app list
+├── AutostartAppAdapter.kt     # RecyclerView adapter for the autostart list
+├── AppPickerAdapter.kt        # RecyclerView adapter for the app picker
+└── BootReceiver.kt            # BroadcastReceiver for BOOT_COMPLETED
 ```
 
 ## Build & Installation
 
 ```bash
-# Repository klonen
+# Clone the repository
 git clone https://github.com/huh66/AutostartMe.git
 
-# In Android Studio öffnen und auf einem Gerät/Emulator mit API 33+ ausführen
+# Open in Android Studio and run on a device/emulator with API 33+
 ```
 
-Oder direkt in Android Studio: *File → Open → Projektordner auswählen → Run*
+Or directly in Android Studio: *File → Open → Select project folder → Run*
 
-## Funktionsweise
+## How It Works
 
-1. **App öffnen** → Die Autostart-Liste wird angezeigt (anfangs leer)
-2. **Berechtigungen erteilen** → Rotes Banner antippen, um Overlay- und Akku-Berechtigung zu aktivieren
-3. **App hinzufügen** → Plus-Button (FAB) drücken → App aus der Liste auswählen
-4. **App entfernen** → Papierkorb-Icon neben der App antippen
-5. **Gerät neustarten** → Die konfigurierten Apps werden automatisch gestartet (mit 1,5s Verzögerung zwischen den Starts)
+1. **Open the app** → The autostart list is displayed (initially empty)
+2. **Grant permissions** → Tap the red banner to enable overlay and battery permissions
+3. **Add an app** → Press the plus button (FAB) → Select an app from the list
+4. **Remove an app** → Tap the trash icon next to the app
+5. **Reboot the device** → Configured apps are launched automatically (with a 1.5s delay between launches)
 
-## Lizenz
+## Documentation
 
-Dieses Projekt ist frei zur persönlichen Nutzung.
+- [README auf Deutsch](README.german.md)
+
+## License
+
+This project is free for personal use.
