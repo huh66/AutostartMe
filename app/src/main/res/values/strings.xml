@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AutostartMe</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="first_fragment_label">Autostart-Apps</string>
+    <string name="second_fragment_label">App hinzufügen</string>
+    <string name="empty_list_hint">Keine Autostart-Apps vorhanden.\nTippe auf + um eine App hinzuzufügen.</string>
+    <string name="search_apps">App suchen…</string>
+    <string name="delete_app">App entfernen</string>
+    <string name="app_icon_desc">App-Symbol</string>
+    <string name="app_added">App zur Autostart-Liste hinzugefügt</string>
+    <string name="app_already_added">App ist bereits in der Liste</string>
+    <string name="notification_channel_name">Autostart-Benachrichtigungen</string>
+    <string name="notification_title">AutostartMe</string>
+    <string name="notification_text">%1$d App(s) konnten nicht automatisch gestartet werden</string>
+    <string name="notification_permission_title">AutostartMe – Berechtigung fehlt</string>
+    <string name="notification_permission_text">Overlay-Berechtigung wird benötigt um Apps automatisch zu starten</string>
+    <string name="permission_banner_title">⚠ Berechtigungen erforderlich</string>
+    <string name="permission_banner_text">Damit Apps beim Gerätestart automatisch gestartet werden, sind folgende Berechtigungen nötig:</string>
+    <string name="grant_overlay_permission">Über anderen Apps anzeigen</string>
+    <string name="grant_battery_permission">Akkuoptimierung deaktivieren</string>
+</resources>
